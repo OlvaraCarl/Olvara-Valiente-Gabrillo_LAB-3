@@ -1,18 +1,2 @@
-## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Introduction
+An intuitive, menu-driven interface makes the following interactive utility easy to use to convert various time units. You can easily choose from many conversion options, including seconds into minutes, minutes into hours, and a lot more. Let's work through an application example where we first convert 120 seconds to minutes and then 120 minutes to hours. Every conversion has clear outputs from the application, and users can stop it at any moment or continue using it. Now, let us have a look at how this conversion process takes place.
