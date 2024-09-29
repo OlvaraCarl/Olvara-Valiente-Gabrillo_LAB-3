@@ -2,25 +2,40 @@ import java.util.Scanner; // Importing Scanner class for user input
 
 public class main {
 
-    // Constants for conversion factors
-    private static final double SECONDS_IN_MINUTE = 60.0;
-    private static final double SECONDS_IN_HOUR = 3600.0;
-    private static final double MINUTES_IN_HOUR = 60.0;
-
-    // Generic method to handle all time conversions
-    public double convertTime(double value, double conversionFactor) {
-        return value * conversionFactor;
+      // Converts seconds to minutes
+    public double SecondsToMinutes(double seconds) {
+        return seconds / 60;
+    }
+    // Converts seconds to hours
+    public double SecondsToHours(double seconds) {
+        return seconds / 3600;
+    }
+    // Converts minutes to seconds
+    public double MinutesToSeconds(double minutes) {
+        return minutes * 60;
+    }
+     // Converts minutes to hours
+    public double MinutesToHours(double minutes) {
+        return minutes / 60;
+    }
+     // Converts hours to seconds
+    public double HoursToSeconds(double hours) {
+        return hours * 3600;
+    }
+      // Converts hours to minutes
+    public double HoursToMinutes(double hours) {
+        return hours * 60;
     }
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);  // Create a Scanner object for user input
+        Scanner input = new Scanner(System.in); // Create a Scanner object to get user input
 
-        main clock = new main();  // Instantiate the main class to access the methods
-        char continueConverting;  // Variable to store user decision to continue or not
-
+        main clock = new main();   // Instantiate the main class to access the methods
+        char continueConverting;   // Variable to store user decision to continue or not
+        
         // Display program introduction
-        System.out.println("zun\nLaboratory Exercise");
+        System.out.println("\nLaboratory Exercise\n");
 
         do {
             // Menu for choosing conversion type
@@ -30,53 +45,53 @@ public class main {
             System.out.println("[4] Minutes to Hours");
             System.out.println("[5] Hours to Seconds");
             System.out.println("[6] Hours to Minutes");
-
+    
             System.out.print("Choose the Conversion: ");
-            int choice = input.nextInt();  // User chooses which conversion to perform
+            int choice = input.nextInt(); // User chooses which conversion to perform
+
+            double value, result = 0; // Initialize value for user input and result for the conversion
 
             System.out.print("Enter the Value: ");
-            double value = input.nextDouble();  // User inputs the value to be converted
+            value = input.nextDouble(); // User inputs the value to be converted
 
-            double result = 0;  // Initialize result for the conversion
-            double conversionFactor = 1;  // Default conversion factor
-
-            // Use array to store conversion factors instead of repeating logic
+              // Perform the conversion based on user's choice
             switch (choice) {
                 case 1:
-                    conversionFactor = 1 / SECONDS_IN_MINUTE;  // Seconds to Minutes
+                    result = clock.SecondsToMinutes(value); // Convert seconds to minutes
+                    System.out.println("Seconds to Minutes: " + result);
                     break;
                 case 2:
-                    conversionFactor = 1 / SECONDS_IN_HOUR;  // Seconds to Hours
+                    result = clock.SecondsToHours(value);   // Convert seconds to hours
+                    System.out.println("Seconds to Hours: " + result);
                     break;
                 case 3:
-                    conversionFactor = SECONDS_IN_MINUTE;  // Minutes to Seconds
+                    result = clock.MinutesToSeconds(value); // Convert minutes to seconds
+                    System.out.println("Minutes to Seconds: " + result);
                     break;
                 case 4:
-                    conversionFactor = 1 / MINUTES_IN_HOUR;  // Minutes to Hours
+                    result = clock.MinutesToHours(value); // Convert minutes to hours
+                    System.out.println("Minutes to Hours: " + result);
                     break;
                 case 5:
-                    conversionFactor = SECONDS_IN_HOUR;  // Hours to Seconds
+                    result = clock.HoursToSeconds(value); // Convert hours to seconds
+                    System.out.println("Hours to Seconds: " + result);
                     break;
                 case 6:
-                    conversionFactor = MINUTES_IN_HOUR;  // Hours to Minutes
+                    result = clock.HoursToMinutes(value); // Convert hours to minutes
+                    System.out.println("Hours to Minutes: " + result);
                     break;
                 default:
-                    System.out.println("Invalid choice!");  // Handle invalid input
-                    continue;  // Skip to the next iteration of the loop
+                    System.out.println("Invalid choice!"); // Handle invalid input
             }
 
-            // Perform the conversion using the generic method
-            result = clock.convertTime(value, conversionFactor);
-            System.out.println("Converted Value: " + result);  // Output the result
-
-            // Ask if the user wants to continue converting
-            System.out.print("Do you want to convert again? (Y/N): ");
+            
+            System.out.print("Do you want to convert time? (Y/N): "); // Repeat if user chooses Y or y
             continueConverting = input.next().charAt(0);
 
             System.out.println("------------------------------------------");
 
-        } while (continueConverting == 'Y' || continueConverting == 'y');  // Repeat if user chooses Y or y
-
-        System.out.println("Thank you for using the program :)!");  // Exit message
+        } while (continueConverting == 'Y' || continueConverting == 'y');
+        
+        System.out.println("Thank you for using the program :)!"); // Exit message
     }
 }
